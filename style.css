@@ -20,3 +20,7 @@ body {
   .row {
     display: flex;
   }
+
+  .clear {
+    display: none;
+  }
