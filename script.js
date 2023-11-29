@@ -7,8 +7,18 @@ const clearGrid = document.querySelector('.clear');
 
 selectButton.onclick = () => {
     const askGrid = prompt("How big would you like the grid?");
-    gridSize(askGrid);
+    if (askGrid > 100) {
+        alert('Invalid. Please enter a number lower than 100.')
+        clearGrid.style.display = 'block';
+        return gridSize(16);
+    } else {
+        gridSize(askGrid);
+        clearGrid.style.display = 'block';
+    }
 }
+
+
+
 
 function gridSize(num){
     for (let i = 0; i < num; i++) {
@@ -22,7 +32,7 @@ function gridSize(num){
         gridItem.onmouseenter = () => {
             gridItem.style.backgroundColor = 'black'
         }
-        }
+    }
         container.appendChild(row);
     }
 }
