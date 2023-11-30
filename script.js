@@ -5,15 +5,19 @@ const gridItem = document.createElement('div');
 const clearGrid = document.querySelector('.clear');
 
 
+
 selectButton.onclick = () => {
     const askGrid = prompt("How big would you like the grid?");
     if (askGrid > 100) {
         alert('Invalid. Please enter a number lower than 100.')
-        clearGrid.style.display = 'block';
-        return gridSize(16);
+        clearGrid.style.display = 'none';
+    } else if(askGrid == undefined || isNaN(askGrid)) {
+        alert('Invalid. Please enter a number.')
+        clearGrid.style.display = 'none';
     } else {
         gridSize(askGrid);
         clearGrid.style.display = 'block';
+        selectButton.style.display = 'none';
     }
 }
 
